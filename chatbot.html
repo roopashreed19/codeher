@@ -1,61 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Companion</title>
-    <link rel="stylesheet" href="css/chatbot.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Companion</title>
+  <link rel="stylesheet" href="css/chatbot.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">🎓 AI Study Companion</div>
-        <nav>
-            <button class="dashboard-btn">Dashboard</button>
-            <button class="logout-btn">Logout</button>
-        </nav>
-    </header>
-    <main>
-        <h1 class="heading">Welcome back!</h1>
-        <div class="card-container">
-            <div class="card-highlighted">
-                <a href="studydashboard.html">
-                <strong>📅Study Plan</strong>
-                <p>View and manage your personalized study plan</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="practiveqn.html">
-                <strong>📝Practice Questions</strong>
-                <p>Access AI-generated practice questions</p>
-                </a>
-        </div>
-        <div class="card">
-            <strong>📖Notes</strong>
-            <p>View and manage your intelligent notes</p>
-        </div>
-        <div class="card">
-            <strong>🤖AI Tutor</strong>
-            <p>Chat with your AI tutor for instant help</p>
-        </div>
-        <div class="card">
-            <strong>📊Performance Analytics</strong>
-            <p>Track your progress and get insights</p>
-        </div>
-        <div class="card">
-            <strong>🎥Video Library</strong>
-            <p>Access AI-generated video explanations</p>
-        </div>
-        </div>
-        <div class="chat-container">
-            <div class="chat-header">🔍 AI Tutor</div>
-            <div class="chat-box" id="chat-box">
-                <div class="bot-message">Hello! How can I assist you today?</div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="user-input" placeholder="Type your message...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-    </main>
+  <header>
+    <div class="logo">🎓 AI Study Companion</div>
+    <nav>
+      <button class="dashboard-btn">Dashboard</button>
+      <button class="logout-btn">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="heading">Welcome back!</h1>
+    <div class="card-container">
+      <div class="card-highlighted">
+        <a href="studydashboard.html">
+          <strong>📅Study Plan</strong>
+          <p>View and manage your personalized study plan</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="practiveqn.html">
+          <strong>📝Practice Questions</strong>
+          <p>Access AI-generated practice questions</p>
+        </a>
+      </div>
+      <div class="card">
+        <strong>📖Notes</strong>
+        <p>View and manage your intelligent notes</p>
+      </div>
+      <div class="card">
+        <strong>🤖AI Tutor</strong>
+        <p>Chat with your AI tutor for instant help</p>
+      </div>
+      <div class="card">
+        <strong>📊Performance Analytics</strong>
+        <p>Track your progress and get insights</p>
+      </div>
+      <div class="card">
+        <strong>🎥Video Library</strong>
+        <p>Access AI-generated video explanations</p>
+      </div>
+    </div>
+
+    <div class="chat-container">
+      <div class="chat-header">🔍 AI Tutor</div>
+      <div class="chat-box" id="chat-box">
+        <div class="bot-message">Hello! How can I assist you today?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    async function sendMessage() {
+      const inputElement = document.getElementById('user-input');
+      const message = inputElement.value.trim();
+      const chatBox = document.getElementById('chat-box');
+
+      if (!message) return;
+
+      // Display user message
+      const userDiv = document.createElement('div');
+      userDiv.classList.add('user-message');
+      userDiv.innerText = message;
+      chatBox.appendChild(userDiv);
+
+      inputElement.value = '';
+
+      // Send to backend
+      try {
+        const response = await fetch('http://127.0.0.1:5000/ask', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ question: message })
+        });
+
+        const data = await response.json();
+        const botDiv = document.createElement('div');
+        botDiv.classList.add('bot-message');
+        botDiv.innerText = data.answer || 'Something went wrong.';
+        chatBox.appendChild(botDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      } catch (err) {
+        const errorDiv = document.createElement('div');
+        errorDiv.classList.add('bot-message');
+        errorDiv.innerText = 'Server Error. Please try again later.';
+        chatBox.appendChild(errorDiv);
+      }
+    }
+  </script>
 </body>
 </html>

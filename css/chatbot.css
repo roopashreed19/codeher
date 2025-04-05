@@ -242,3 +242,19 @@ a{
     text-decoration: none;
     color:white;
 }
+.user-message {
+    background-color: #050505;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    text-align: right;
+  }
+  
+  .bot-message {
+    background-color: #7a78f7;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
