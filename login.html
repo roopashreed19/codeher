@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="blob blob4"></div>
+    <div class="Login-Containter">
+        <h1 class="signin-text">SIGNIN</h1>
+        <div class="Login-box">
+            <div class="input-group">
+                <input type="text"  placeholder="Name/Email">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password">
+            </div>
+            <div class="terms">
+                <input type="checkbox" id="terms">
+                <label for="terms">I agree for terms and conditions</label>
+            </div>
+            <button class="Login" id="loginBtn"> Login</button>
+        </div>
+    
+    </div>
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", function (event) {
+          const emailInput = document.querySelector("input[type='text']");
+          const passwordInput = document.querySelector("input[type='password']");
+          const termsCheckbox = document.getElementById("terms");
+
+          const emailValue = emailInput.value.trim();
+          const passwordValue = passwordInput.value.trim();
+          if (emailValue === "" || passwordValue === "") {
+      alert("Please enter your Name/Email and Password.");
+      return; 
+    }
+    if (!termsCheckbox.checked) {
+      alert("Please agree to the terms and conditions before logging in.");
+      return; 
+    }
+    window.location.href = "studydashboard.html";
+  });
+</script>
+      
+</body>
+</html>

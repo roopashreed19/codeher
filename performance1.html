@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Analytics</title>
+    <link rel="stylesheet" href="/css/performance.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">🎓 AI Study Companion</div>
+        <nav>
+            <button class="dashboard-btn" onclick="window.location.href='index.html'">Dashboard</button>
+            <button class="logout-btn">Logout</button>
+        </nav>
+    </header>
+    
+    <main>
+        <h1 class="heading">📊 Performance Analytics</h1>
+
+        <form id="marksForm">
+            <label>Maths:<input type="number" id="math" min="0" max="100" required></label><br>
+            <label>Physics: <input type="number" id="physics" min="0" max="100" required></label><br>
+            <label>Chemistry: <input type="number" id="chemistry" min="0" max="100" required></label><br>
+            <label>Biology: <input type="number" id="biology" min="0" max="100" required></label><br>           
+            <label>Reasoning: <input type="number" id="reasoning" min="0" max="100" required></label><br>
+            <button type="submit">Generate Report</button>
+        </form>
+
+
+        <div class="card-container">
+            <div class="card-highlighted">
+                <strong>📈 Overall Progress</strong>
+                <p id="overallProgress">Enter your marks to see performance</p>
+            </div>
+            <div class="card">
+                <strong>✅ Strengths</strong>
+                <p id="strengths">Auto-generated based on marks</p>
+            </div>
+            <div class="card">
+                <strong>⚠️ Weaknesses</strong>
+                <p id="weaknesses">Auto-generated based on marks</p>
+            </div>
+        </div>
+
+        <div class="analytics-container">
+            <canvas id="performanceChart"></canvas>
+        </div>
+    </main>
+
+    <script>
+    
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        let performanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Math', 'Physics', 'Chemistry', 'Biology', 'Reasoning'],
+                datasets: [{
+                    label: 'Score (%)',
+                    data: [0, 0, 0, 0, 0],
+                    backgroundColor: ['#6c5ce7', '#00b894', '#e17055', '#fdcb6e', '#d63031'],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        document.getElementById('marksForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+     
+            let math = parseInt(document.getElementById('math').value);
+            let physics = parseInt(document.getElementById('physics').value);
+            let chemistry = parseInt(document.getElementById('chemistry').value);
+            let biology = parseInt(document.getElementById('biology').value);
+            let reasoning = parseInt(document.getElementById('reasoning').value);
+
+            let scores = [math, physics, chemistry, biology, reasoning];
+
+          
+            performanceChart.data.datasets[0].data = scores;
+            performanceChart.update();
+
+            
+            let total = scores.reduce((a, b) => a + b, 0);
+            let overallPerformance = (total / scores.length).toFixed(2);
+            document.getElementById('overallProgress').textContent = `Overall Performance: ${overallPerformance}%`;
+
+            let strengths = [];
+            let weaknesses = [];
+            let subjects = ['Math', 'Physics', 'Chemistry', 'Biology', 'Reasoning'];
+
+            for (let i = 0; i < scores.length; i++) {
+                if (scores[i] >= 75) {
+                    strengths.push(subjects[i]);
+                } else {
+                    weaknesses.push(subjects[i]);
+                }
+            }
+
+            document.getElementById('strengths').textContent = strengths.length > 0 ? strengths.join(', ') : 'None';
+            document.getElementById('weaknesses').textContent = weaknesses.length > 0 ? weaknesses.join(', ') : 'None';
+        });
+    </script>
+</body>
+</html>

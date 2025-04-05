@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/3156233-Photoroom\ \(1\).png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: url('/images/3156233-Photoroom\ \(1\).png') no-repeat center center fixed;
+    padding: 15px 30px;
+    box-shadow: 0px 2px 5px white;
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    
+}
+
+button {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.card, .card-highlighted {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px white;
+    text-align: center;
+    color: white;
+}
+
+.card-highlighted {
+    border: 2px solid #6c5ce7;
+}
+
+.analytics-container {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px white;
+}
+
+canvas {
+    width: 100%;
+}
+.heading{
+    color:white;
+}
+#marksForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparent background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5);
+    border: 2px solid white;
+}
+
+#marksForm label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    color: white;
+}
+
+#marksForm input {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+#marksForm button {
+    margin-top: 15px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .analytics-container {
+        width: 95%;
+    }
+}
