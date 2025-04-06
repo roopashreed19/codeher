@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background: #f2f6fa;
+  }
+  
+  header {
+    background-color: #0366d6;
+    color: white;
+    padding: 10px;
+  }
+  
+  input[type="file"] {
+    margin: 10px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  #options button {
+    display: block;
+    margin: 5px auto;
+    width: 60%;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #feedback {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MCQ Generator</title>
+  <link rel="stylesheet" href="css/mcqgenerator.css" />
+</head>
+<body>
+  <header>
+    <h1>🧠 MCQ Generator</h1>
+  </header>
+
+  <main>
+    <section class="upload-section">
+      <h2>Upload Study Material</h2>
+      <input type="file" id="fileInput" accept=".pdf, .png, .jpg, .jpeg" />
+      <button id="generateBtn">Generate MCQs</button>
+    </section>
+
+    <!-- ✅ Question display -->
+    <section class="question-box">
+      <div id="questionContainer"></div>
+    </section>
+
+    <!-- ✅ Feedback area -->
+    <section class="feedback-box">
+      <p id="feedbackText"></p>
+    </section>
+  </main>
+
+  <script src="mcqgenerator.js" defer></script>
+</body>
+</html>
+

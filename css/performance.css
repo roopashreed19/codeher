@@ -2,28 +2,27 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('/images/3156233-Photoroom\ \(1\).png') no-repeat center center fixed;
-    background-size: cover;
+    background: white; 
+    color: purple;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: url('/images/3156233-Photoroom\ \(1\).png') no-repeat center center fixed;
+    background: #e9d5ff;
     padding: 15px 30px;
-    box-shadow: 0px 2px 5px white;
+    box-shadow: 0px 2px 10px rgba(128, 0, 128, 0.3);
 }
 
 .logo {
     font-size: 35px;
     font-weight: bold;
-    color: white;
-    
+    color: purple;
 }
 
 button {
-    background-color: #6c5ce7;
+    background-color:purple; 
     color: white;
     border: none;
     padding: 10px 15px;
@@ -45,29 +44,34 @@ button {
     border-radius: 10px;
     box-shadow: 0px 2px 5px white;
     text-align: center;
-    color: white;
+    color: purple; 
 }
 
-.card-highlighted {
-    border: 2px solid #6c5ce7;
+.card-highlighted,.card {
+    border: 2px solid purple;
 }
+
 
 .analytics-container {
     width: 80%;
     max-width: 800px;
     margin: auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.9); 
     border-radius: 10px;
     box-shadow: 0px 2px 5px white;
+    border: 2px solid purple;
+    
 }
 
 canvas {
     width: 100%;
 }
-.heading{
-    color:white;
+
+.heading {
+    color: purple; 
 }
+
 #marksForm {
     display: flex;
     flex-direction: column;
@@ -75,10 +79,10 @@ canvas {
     margin: 20px auto;
     padding: 20px;
     width: 300px;
-    background: rgba(255, 255, 255, 0.1); /* Slight transparent background */
+    background: rgba(255, 255, 255, 0.1); 
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5);
-    border: 2px solid white;
+    border: 2px solid purple;
 }
 
 #marksForm label {
@@ -86,14 +90,14 @@ canvas {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
-    color: white;
+    color: purple; 
 }
 
 #marksForm input {
     width: 60px;
     padding: 5px;
     border-radius: 5px;
-    border: none;
+    border: 2px solid purple;
 }
 
 #marksForm button {
