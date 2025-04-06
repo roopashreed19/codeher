@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dopamine Reels</title>
+    <link rel="stylesheet" href="/css/dopamine1.css">
+</head>
+<header class="header">
+    <div class="logo">🎓 AI Study Companion</div>
+    <nav>
+        <button class="dashboard-btn" onclick="window.location.href='index.html'">Dashboard</button>
+        <button class="logout-btn">Logout</button>
+    </nav>
+</header>
+    <div class="dopamine-reels-section">
+       
+        <h2>Dopamine Reels (In Progress)</h2>
+        <div class="reels-content">
+            <div class="reel-card">
+                <p id="dopamineMessage">"You studied 45 mins — well done!"</p>
+                <button class="next-button" onclick="nextMessage()">Next Tip</button>
+            </div>
+        </div>
+        <div class="memes-section">
+            <h3>Take a Break! Relax with Some Memes:</h3>
+            <button class="show-memes-btn" onclick="showMemes()">Show Memes</button>
+            <div class="memes-container">
+                <img src="images/WhatsApp Image 2025-04-06 at 07.35.59_334a923c.jpg" alt="Meme 1" class="meme-img">
+                <img src="images/WhatsApp Image 2025-04-06 at 07.36.14_6027db38.jpg" alt="Meme 2" class="meme-img">
+            </div>
+        </div>
+        <div class="info-section">
+            <button onclick="showTrivia()">Brain Trivia</button>
+            <button onclick="showTip()">Productivity Hack</button>
+            <button onclick="showToppersTip()">Topper's Tip</button>
+            <button onclick="startQuiz()">Start Brain Booster Quiz</button>
+        </div>
+
+        
+        <div id="quizSection" class="hidden">
+            <h3>Brain Booster Quiz</h3>
+            <div id="quizContainer">
+                <p id="question"></p>
+                <div id="options"></div>
+                <button id="nextQuestionBtn" class="hidden" onclick="nextQuestion()">Next Question</button>
+            </div>
+        </div>
+
+        <div id="extraInfo" class="extra-info hidden">
+           
+        </div>
+    </div>
+
+    <script src="dopamine1.js"></script>
+</body>
+</html>

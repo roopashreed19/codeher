@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Mode</title>
+    <link rel="stylesheet" href="/css/exammode.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🎓 AI Study Companion</div>
+        <nav>
+            <button class="dashboard-btn" onclick="window.location.href='index.html'">Dashboard</button>
+            <button class="logout-btn">Logout</button>
+        </nav>
+      </header>
+
+    <main>
+        <div id="quizSection">
+            <h3>Brain Booster Quiz</h3>
+            <div id="quizContainer">
+                <!-- Display Question here -->
+                <p id="question"></p>
+                <!-- Display Answer Options here -->
+                <div id="options"></div>
+                <button id="nextQuestionBtn" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="exammode.js"></script>
+</body>
+</html>
